@@ -27,7 +27,7 @@ public class CategoryService {
     }
 
     @Transactional
-    public Category saveCategory(Category category) {
+    public Category createCategory(Category category) {
         try{
             category.setCategoryId(null);
             return categoryRepository.save(category);
@@ -47,8 +47,8 @@ public class CategoryService {
 
     @Transactional
     public Category updateCategory(Integer categoryId, Category category) {
-        try {
             Category categoryToUpdate = categoryRepository.findById(categoryId).orElseThrow(() -> new CategoryNotFoundException("Category not found"));
+        try {
             categoryToUpdate.setCategoryName(category.getCategoryName());
             return categoryRepository.save(categoryToUpdate);
         } catch (RuntimeException e) {

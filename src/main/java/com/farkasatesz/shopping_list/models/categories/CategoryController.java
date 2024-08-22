@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/shopping-list/categories")
+@RequestMapping(path = "api/shopping-list/categories")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -17,22 +17,22 @@ public class CategoryController {
     }
 
     @GetMapping(path = "/search")
-    public List<Category> search(@RequestParam String query) {
+    public List<Category> searchCategoriesByQuery(@RequestParam String query) {
         return categoryService.findCategoriesByQuery(query);
     }
 
     @PostMapping
-    public Category create(@RequestBody Category category) {
-        return categoryService.saveCategory(category);
+    public Category createCategory(@RequestBody Category category) {
+        return categoryService.createCategory(category);
     }
 
     @PutMapping(path = "/{categoryId}")
-    public Category update(@PathVariable Integer categoryId, @RequestBody Category category) {
+    public Category updateCategory(@PathVariable Integer categoryId, @RequestBody Category category) {
         return categoryService.updateCategory(categoryId, category);
     }
 
     @DeleteMapping(path = "/{categoryId}")
-    public void delete(@PathVariable Integer categoryId) {
+    public void deleteCategory(@PathVariable Integer categoryId) {
         categoryService.deleteCategory(categoryId);
     }
 }
