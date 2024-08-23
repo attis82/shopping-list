@@ -20,7 +20,7 @@ public class CategoryService {
 
     public List<Category> findCategoriesByQuery(String query) {
         try{
-            return categoryRepository.findByCategoryNameLikeIgnoreCase(query);
+            return categoryRepository.findByCategoryNameLikeIgnoreCase("%" + query +"%");
         }catch(Exception e){
             throw new CategoryException("Failed to find categories by query: " + query, e);
         }

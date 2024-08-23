@@ -19,7 +19,7 @@ public class SupermarketService {
     }
 
     public List<Supermarket> findSupermarketsByQuery(String query) {
-        return supermarketRepository.findBySupermarketNameLikeIgnoreCase(query);
+        return supermarketRepository.findBySupermarketNameLikeIgnoreCase("%" + query +"%");
     }
 
     @Transactional

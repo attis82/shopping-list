@@ -27,7 +27,7 @@ public class ShoppingItemService {
 
     public List<ShoppingItem> findShoppingItemsByQuery(String query){
         try {
-            return shoppingItemRepository.findByShoppingItemNameLikeIgnoreCase(query);
+            return shoppingItemRepository.findByShoppingItemNameLikeIgnoreCase("%" + query +"%");
         }catch (RuntimeException e){
             throw new ShoppingItemException("Could not find shopping item by query: " + query, e);
         }

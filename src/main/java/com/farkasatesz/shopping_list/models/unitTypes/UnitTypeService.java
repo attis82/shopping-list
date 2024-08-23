@@ -18,7 +18,7 @@ public class UnitTypeService {
 
     public List<UnitType> getUnitTypesByQuery(String query) {
         try {
-            return unitTypeRepository.findByUnitTypeNameLikeIgnoreCase(query);
+            return unitTypeRepository.findByUnitTypeNameLikeIgnoreCase("%" + query +"%");
         } catch (Exception e) {
             throw new UnitTypeException("Failed to find unitTypes by query: " + query, e);
         }
