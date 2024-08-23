@@ -19,7 +19,7 @@ public class ShoppingItemService {
 
     public List<ShoppingItem> findAllShoppingItemBySupermarket(Integer supermarketId) {
         try {
-            return shoppingItemRepository.findBySupermarketId(supermarketId);
+            return shoppingItemRepository.findAllBySupermarketSupermarketId(supermarketId);
         } catch (RuntimeException e) {
             throw new ShoppingItemException("Could not find shopping item by supermarket id: " + supermarketId, e);
         }
