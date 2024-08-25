@@ -26,6 +26,10 @@ public class CategoryService {
         }
     }
 
+    public Boolean existsCategoryByName(String categoryName) {
+        return categoryRepository.existsByCategoryNameLikeIgnoreCase(categoryName);
+    }
+
     @Transactional
     public Category createCategory(Category category) {
         try{

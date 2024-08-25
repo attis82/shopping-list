@@ -9,5 +9,6 @@ import java.util.List;
 public interface SupermarketRepository extends JpaRepository<Supermarket, Integer> {
 
     List<Supermarket> findBySupermarketNameLikeIgnoreCase(String query);
+    Boolean existsBySupermarketNameLikeIgnoreCase(String supermarketName);
 
 }

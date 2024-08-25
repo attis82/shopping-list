@@ -22,6 +22,10 @@ public class SupermarketService {
         return supermarketRepository.findBySupermarketNameLikeIgnoreCase("%" + query +"%");
     }
 
+    public Boolean checkIfSupermarketExists(String supermarketName) {
+        return supermarketRepository.existsBySupermarketNameLikeIgnoreCase(supermarketName);
+    }
+
     @Transactional
     public Supermarket createSupermarket(Supermarket supermarket) {
         try {

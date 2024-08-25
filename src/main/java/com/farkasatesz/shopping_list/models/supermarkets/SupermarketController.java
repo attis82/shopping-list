@@ -21,6 +21,11 @@ public class SupermarketController {
         return supermarketService.findSupermarketsByQuery(query);
     }
 
+    @GetMapping(path = "/check-existence")
+    public Boolean checkExistence(@RequestParam String supermarketName) {
+        return supermarketService.checkIfSupermarketExists(supermarketName);
+    }
+
     @PostMapping
     public Supermarket createSupermarket(@RequestBody Supermarket supermarket) {
         return supermarketService.createSupermarket(supermarket);

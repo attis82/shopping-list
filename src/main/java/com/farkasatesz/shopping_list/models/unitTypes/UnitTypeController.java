@@ -21,6 +21,11 @@ public class UnitTypeController {
         return unitTypeService.getUnitTypesByQuery(query);
     }
 
+    @GetMapping(path = "/check-existence")
+    public Boolean checkExistence(@RequestParam String unitTypeName) {
+        return unitTypeService.existsByUnitType(unitTypeName);
+    }
+
     @PostMapping
     public UnitType createUnitType(@RequestBody UnitType unitType) {
         return unitTypeService.createUnitType(unitType);

@@ -21,6 +21,11 @@ public class CategoryController {
         return categoryService.findCategoriesByQuery(query);
     }
 
+    @GetMapping(path = "/check-existence")
+    public Boolean checkCategoriesExistence(@RequestParam String categoryName) {
+        return categoryService.existsCategoryByName(categoryName);
+    }
+
     @PostMapping
     public Category createCategory(@RequestBody Category category) {
         return categoryService.createCategory(category);

@@ -9,5 +9,6 @@ import java.util.List;
 public interface UnitTypeRepository extends JpaRepository<UnitType, Integer> {
 
     List<UnitType> findByUnitTypeNameLikeIgnoreCase(String query);
+    Boolean existsByUnitTypeNameLikeIgnoreCase(String unitTypeName);
 
 }

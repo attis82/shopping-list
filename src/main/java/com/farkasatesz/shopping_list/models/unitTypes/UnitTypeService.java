@@ -24,6 +24,10 @@ public class UnitTypeService {
         }
     }
 
+    public Boolean existsByUnitType(String unitTypeName) {
+        return unitTypeRepository.existsByUnitTypeNameLikeIgnoreCase(unitTypeName);
+    }
+
     @Transactional
     public UnitType createUnitType(UnitType unitType) {
         try {
