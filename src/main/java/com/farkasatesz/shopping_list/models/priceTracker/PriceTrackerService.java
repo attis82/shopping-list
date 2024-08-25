@@ -25,7 +25,7 @@ public class PriceTrackerService {
         }
     }
 
-    public List<Double> getPriceHistory(Integer shoppingItemId){
+    public List<PriceTracker> getPriceHistory(Integer shoppingItemId){
         try {
             return priceTrackerRepository.getPriceHistoryOfShoppingItem(shoppingItemId);
         }catch (RuntimeException e){
@@ -44,12 +44,4 @@ public class PriceTrackerService {
         }
     }
 
-    @Transactional
-    public void deletePriceTracker(Integer priceTrackerId) {
-        try {
-            priceTrackerRepository.deleteById(priceTrackerId);
-        } catch (RuntimeException e) {
-            throw new PriceTrackerException("Unable to delete price", e);
-        }
-    }
 }

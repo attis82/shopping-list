@@ -12,6 +12,6 @@ public interface PriceTrackerRepository extends JpaRepository<PriceTracker, Inte
     @Query("SELECT unitPrice FROM PriceTracker WHERE shoppingItem.shoppingItemId=:id ORDER BY priceAddedAt DESC limit 1")
     Double getMostRecentPrice(Integer id);
 
-    @Query("SELECT unitPrice FROM PriceTracker WHERE shoppingItem.shoppingItemId=:id  ORDER BY priceAddedAt ASC")
-    List<Double> getPriceHistoryOfShoppingItem(Integer id);
+    @Query("SELECT PriceTracker FROM PriceTracker WHERE shoppingItem.shoppingItemId=:id  ORDER BY priceAddedAt ASC")
+    List<PriceTracker> getPriceHistoryOfShoppingItem(Integer id);
 }

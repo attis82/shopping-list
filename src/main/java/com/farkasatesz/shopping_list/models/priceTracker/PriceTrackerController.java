@@ -21,7 +21,7 @@ public class PriceTrackerController {
     }
 
     @GetMapping(path = "/history")
-    public List<Double> getHistory(@RequestParam Integer shoppingItemId) {
+    public List<PriceTracker> getHistory(@RequestParam Integer shoppingItemId) {
         return priceTrackerService.getPriceHistory(shoppingItemId);
     }
 
@@ -30,8 +30,4 @@ public class PriceTrackerController {
         return priceTrackerService.createPriceTracker(priceTracker);
     }
 
-    @DeleteMapping(path = "/{priceTrackerId}")
-    public void deletePriceTracker(@PathVariable Integer priceTrackerId) {
-        priceTrackerService.deletePriceTracker(priceTrackerId);
-    }
 }

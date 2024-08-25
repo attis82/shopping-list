@@ -17,8 +17,8 @@ public class SupermarketController {
     }
 
     @GetMapping(path = "/search")
-    public List<Supermarket> search(@RequestParam String query) {
-        return supermarketService.findSupermarketsByQuery(query);
+    public List<Supermarket> search(@RequestParam String supermarketName) {
+        return supermarketService.findSupermarketsByQuery(supermarketName);
     }
 
     @GetMapping(path = "/check-existence")
