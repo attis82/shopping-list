@@ -1,7 +1,6 @@
 package com.farkasatesz.shopping_list.models.shoppingItems;
 
 import com.farkasatesz.shopping_list.models.categories.Category;
-import com.farkasatesz.shopping_list.models.priceTracker.PriceTracker;
 import com.farkasatesz.shopping_list.models.supermarkets.Supermarket;
 import com.farkasatesz.shopping_list.models.unitTypes.UnitType;
 import jakarta.persistence.*;
@@ -35,9 +34,5 @@ public class ShoppingItem {
     @ManyToOne
     @JoinColumn(name = "unit_type_id", referencedColumnName = "unit_type_id")
     private UnitType unitType;
-
-    @ManyToOne
-    @JoinColumn(name = "price_tracker", referencedColumnName = "price_tracker_id")
-    private PriceTracker priceTracker;
 
 }

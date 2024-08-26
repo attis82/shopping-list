@@ -50,7 +50,6 @@ public class ShoppingItemService {
         oldShoppingItem.setCategory(shoppingItem.getCategory());
         oldShoppingItem.setSupermarket(shoppingItem.getSupermarket());
         oldShoppingItem.setUnitType(shoppingItem.getUnitType());
-        oldShoppingItem.setPriceTracker(shoppingItem.getPriceTracker());
         try {
             return shoppingItemRepository.save(oldShoppingItem);
         }catch (RuntimeException e){
