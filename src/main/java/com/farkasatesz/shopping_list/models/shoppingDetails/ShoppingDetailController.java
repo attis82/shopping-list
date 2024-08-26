@@ -36,8 +36,8 @@ public class ShoppingDetailController {
         shoppingDetailService.deleteList(shoppingListId);
     }
 
-    @DeleteMapping(path = "/remove?shoppingItemId=shoppingItemId%shoppingListId=shoppingListId")
-    public void removeShoppingDetail(@RequestParam Integer shoppingListId, @RequestParam Integer shoppingItemId) {
+    @DeleteMapping(path = "/remove{shoppingItemId}{shoppingListId}")
+    public void removeShoppingDetail(@PathVariable Integer shoppingListId, @PathVariable Integer shoppingItemId) {
         shoppingDetailService.removeItem(shoppingListId, shoppingItemId);
     }
 
