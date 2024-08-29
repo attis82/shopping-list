@@ -26,4 +26,10 @@ public class ShoppingDetail {
     @ManyToOne
     @JoinColumn(name = "shopping_item_id", referencedColumnName = "shopping_item_id")
     private ShoppingItem shoppingItem;
+
+    @Column(name = "latest_unit_price")
+    private Double latestUnitPrice;
+
+    @Column(name = "quantity")
+    private Double quantity;
 }

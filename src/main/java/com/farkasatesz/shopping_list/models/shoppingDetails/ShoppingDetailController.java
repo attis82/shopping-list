@@ -1,6 +1,6 @@
 package com.farkasatesz.shopping_list.models.shoppingDetails;
 
-import com.farkasatesz.shopping_list.models.shoppingItems.ShoppingItem;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,20 +26,19 @@ public class ShoppingDetailController {
         return shoppingDetailService.save(shoppingDetail);
     }
 
-    @PostMapping(path = "/add/{shoppingDetailId}")
-    public ShoppingDetail addShoppingItem(@PathVariable Integer shoppingDetailId, @RequestBody ShoppingItem shoppingItem) {
-        return shoppingDetailService.addItem(shoppingDetailId, shoppingItem);
-    }
-
     @DeleteMapping(path = "/delete-list/{shoppingListId}")
-    public void deleteShoppingDetail(@PathVariable Integer shoppingListId) {
+    public void deleteShoppingList(@PathVariable Integer shoppingListId) {
         shoppingDetailService.deleteList(shoppingListId);
     }
 
-    @DeleteMapping(path = "/remove{shoppingItemId}{shoppingListId}")
-    public void removeShoppingDetail(@PathVariable Integer shoppingListId, @PathVariable Integer shoppingItemId) {
-        shoppingDetailService.removeItem(shoppingListId, shoppingItemId);
+    @DeleteMapping(path = "/{shoppingDetailId}")
+    public void deleteShoppingDetail(@PathVariable Integer shoppingDetailId) {
+        shoppingDetailService.deleteDetail(shoppingDetailId);
     }
 
-
+    @Transactional
+    @PutMapping(path = "/{shoppingDetailId}")
+    public ShoppingDetail update(@RequestBody ShoppingDetail shoppingDetail, @PathVariable Integer shoppingDetailId) {
+        return shoppingDetailService.update(shoppingDetailId, shoppingDetail);
+    }
 }
